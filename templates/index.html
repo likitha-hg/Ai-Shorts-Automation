@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>AI Shorts Generator</title>
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+<div class="container">
+    <h1>🎬 AI Shorts Generator</h1>
+
+    <!-- Top Dashboard -->
+    <div class="dashboard">
+
+        <!-- Left Section (Input Form) -->
+        <div class="card input-card">
+            <h2>Input Details</h2>
+
+            <input
+                type="text"
+                id="title"
+                placeholder="Enter video title"
+            />
+
+            <textarea
+                id="hook"
+                rows="3"
+                placeholder="Enter hook (opening line)"
+            ></textarea>
+
+            <input
+                type="text"
+                id="keywords"
+                placeholder="Enter keywords (comma separated)"
+            />
+
+            <input
+                type="text"
+                id="target_audience"
+                placeholder="Target audience"
+            />
+
+            <input
+                type="number"
+                id="duration"
+                min="15"
+                max="120"
+                value="60"
+            />
+
+            <button onclick="generateVideo()">
+                Generate Video
+            </button>
+        </div>
+
+        <!-- Right Section (Live Workflow) -->
+        <div class="card workflow-card">
+            <h2>Live Workflow</h2>
+
+            <div id="loading">
+                <p id="status">Waiting to start...</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bottom Dashboard -->
+    <div id="result" class="result-grid" style="display:none;">
+
+        <!-- Script -->
+        <div class="card script-card">
+            <h2>Generated Script</h2>
+            <pre id="script"></pre>
+        </div>
+
+        <!-- Scenes -->
+        <div class="card scene-card">
+            <h2>Generated Scenes</h2>
+            <ul id="scenes"></ul>
+        </div>
+
+        <!-- Final Video -->
+        <div class="card video-card">
+            <h2>Final Video</h2>
+
+            <video
+                id="video"
+                controls
+                width="100%">
+            </video>
+
+            <br><br>
+
+            <a
+                id="downloadBtn"
+                download="ai_short.mp4">
+                Download Video
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<script src="/static/app.js"></script>
+
+</body>
+</html>
